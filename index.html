@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09090d">
+<title></title>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1399310622039113');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1399310622039113&ev=PageView&noscript=1"></noscript>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#08090d}
+body{overflow:hidden;font-family:Arial,sans-serif}
+.scene{height:100svh;min-height:560px;position:relative;overflow:hidden;isolation:isolate;
+ background:
+ radial-gradient(ellipse at 50% 44%,rgba(32,74,91,.42),transparent 44%),
+ radial-gradient(ellipse at 50% 100%,#020306 0,transparent 52%),
+ linear-gradient(135deg,#10131b 0%,#080a10 55%,#121018 100%)}
+.scene:before{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;
+ background:linear-gradient(180deg,rgba(0,0,0,.08),transparent 42%,rgba(0,0,0,.78)),
+ radial-gradient(ellipse at center,transparent 25%,rgba(0,0,0,.52) 100%)}
+.frame{position:absolute;inset:14px;border:1px solid rgba(213,224,230,.15);z-index:8;pointer-events:none}
+.halo{position:absolute;width:100vw;height:65vw;left:50%;top:43%;transform:translate(-50%,-50%);
+ background:radial-gradient(ellipse,rgba(56,119,143,.24),transparent 65%);filter:blur(22px)}
+/* overhead tournament table: a new, wide oval silhouette */
+.table{position:absolute;left:50%;top:43%;width:min(145vw,1700px);height:min(83vw,950px);
+ min-height:590px;transform:translate(-50%,-50%) rotate(-7deg);border-radius:50%;
+ background:
+ repeating-linear-gradient(7deg,rgba(255,255,255,.018) 0 1px,transparent 1px 5px),
+ radial-gradient(ellipse at 48% 42%,#263b48 0%,#172a35 43%,#101d27 68%,#080e15 100%);
+ border:2px solid #68747a;
+ box-shadow:0 55px 100px #000c,0 0 0 12px #11161b,0 0 0 17px #586168,
+ 0 0 0 22px #080c11,inset 0 12px 28px #ffffff18,inset 0 -60px 85px #000b}
+.table:before{content:"";position:absolute;inset:25px;border-radius:50%;border:1px solid rgba(190,205,210,.3);
+ box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+.table:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse,transparent 43%,rgba(0,0,0,.35) 100%)}
+/* five community cards laid out like a real flop-turn-river */
+.board{position:absolute;z-index:2;left:50%;top:39%;transform:translate(-50%,-50%) rotate(-5deg);
+ display:flex;gap:clamp(5px,1.1vw,14px);filter:drop-shadow(0 25px 23px rgba(0,0,0,.65))}
+.card{position:relative;width:clamp(67px,10.7vw,136px);height:clamp(101px,16.8vw,214px);
+ border-radius:8px;background:linear-gradient(145deg,#fffef9 0%,#e6e3da 65%,#c8c8c2 100%);
+ border:1px solid rgba(255,255,255,.9);box-shadow:inset 0 0 0 2px rgba(25,29,31,.07),inset -5px -7px 12px rgba(0,0,0,.08)}
+.card:nth-child(2){transform:translateY(12px) rotate(-2deg)}
+.card:nth-child(3){transform:translateY(-5px) rotate(1deg)}
+.card:nth-child(4){transform:translateY(9px) rotate(2deg)}
+.card:nth-child(5){transform:translateY(-3px) rotate(4deg)}
+.rank{position:absolute;top:8px;left:9px;font-family:Georgia,serif;font-weight:bold;font-size:clamp(18px,2.8vw,34px);line-height:.9}
+.rank small{display:block;text-align:center;font-size:.8em;margin-top:4px}
+.suit{position:absolute;inset:0;display:grid;place-items:center;font-family:Georgia,serif;font-size:clamp(39px,6vw,78px)}
+.red{color:#a32639}
+/* chip stacks are small accents, not the previous hero composition */
+.stack{position:absolute;z-index:2;width:82px;height:82px;filter:drop-shadow(0 15px 12px #0009)}
+.stack i{position:absolute;left:0;width:82px;height:25px;border-radius:50%;border:3px dashed rgba(224,231,229,.88);
+ box-shadow:inset 0 3px 5px #ffffff35,inset 0 -4px 6px #0007}
+.stack i:nth-child(1){top:0}.stack i:nth-child(2){top:13px}.stack i:nth-child(3){top:26px}
+.stack i:nth-child(4){top:39px}
+.stack.blue i{background:linear-gradient(90deg,#101a27,#496174 50%,#111b28)}
+.stack.redchip i{background:linear-gradient(90deg,#39131d,#853449 50%,#32101a)}
+.s1{left:16%;top:58%;transform:rotate(-13deg) scale(.86)}
+.s2{right:15%;top:56%;transform:rotate(12deg) scale(.95)}
+.s3{right:28%;top:19%;transform:rotate(8deg) scale(.58)}
+/* discreet seat silhouettes beyond the table edge */
+.seat{position:absolute;width:18vw;height:9vw;max-width:240px;max-height:115px;border-radius:50%;
+ background:linear-gradient(180deg,#33343b,#11141a 70%);border:1px solid #65656a;
+ box-shadow:0 22px 35px #000b,inset 0 4px 8px #ffffff1c;opacity:.72}
+.seat.a{left:7%;top:12%;transform:rotate(-20deg)}
+.seat.b{right:7%;top:13%;transform:rotate(20deg)}
+.seat.c{left:4%;bottom:10%;transform:rotate(15deg)}
+.seat.d{right:4%;bottom:10%;transform:rotate(-15deg)}
+.cta{position:absolute;z-index:9;left:50%;bottom:9%;transform:translateX(-50%);
+ width:min(84vw,360px);height:62px;display:flex;align-items:center;justify-content:center;
+ border:1px solid rgba(255,255,255,.52);border-radius:4px;color:#fff;text-decoration:none;
+ font-size:14px;font-weight:700;letter-spacing:.16em;background:linear-gradient(180deg,#176b4b,#0a402f);
+ box-shadow:0 14px 40px #000b,inset 0 1px 0 #ffffff3b}
+.cta:focus-visible{outline:2px solid #fff;outline-offset:5px}
+@media(max-width:600px){
+ .frame{inset:9px}.table{width:166vw;height:112vw;min-height:510px;top:42%}
+ .board{top:39%;gap:5px}.card{width:17vw;height:25.5vw;max-width:95px;max-height:145px}
+ .rank{font-size:19px;top:6px;left:7px}.suit{font-size:42px}
+ .s1{left:2%;top:56%;transform:rotate(-13deg) scale(.65)}
+ .s2{right:1%;top:57%;transform:rotate(12deg) scale(.68)}
+ .s3{right:15%;top:20%;transform:rotate(8deg) scale(.48)}
+ .seat{width:25vw;height:12vw}.cta{bottom:8%;height:58px}
+}
+</style></head>
+<body>
+<main class="scene" aria-label="Poker landing page">
+<div class="halo"></div><div class="seat a"></div><div class="seat b"></div><div class="seat c"></div><div class="seat d"></div>
+<div class="table"></div>
+<div class="stack blue s1"><i></i><i></i><i></i><i></i></div>
+<div class="stack redchip s2"><i></i><i></i><i></i><i></i></div>
+<div class="stack blue s3"><i></i><i></i><i></i><i></i></div>
+<div class="board">
+<div class="card"><div class="rank">A<small>♠</small></div><div class="suit">♠</div></div>
+<div class="card red"><div class="rank">K<small>♥</small></div><div class="suit">♥</div></div>
+<div class="card"><div class="rank">Q<small>♣</small></div><div class="suit">♣</div></div>
+<div class="card red"><div class="rank">J<small>♦</small></div><div class="suit">♦</div></div>
+<div class="card"><div class="rank">10<small>♠</small></div><div class="suit">♠</div></div>
+</div>
+<a class="cta" href="https://t.me/+dm8CamG_BfljODEy" target="_blank" rel="noopener noreferrer" onclick="if(typeof fbq==='function')fbq('track','Lead')">OYUNA QOŞUL</a>
+</main></body></html>
